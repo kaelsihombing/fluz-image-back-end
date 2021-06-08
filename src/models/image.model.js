@@ -2,7 +2,7 @@ const axios = require("axios");
 const url = "https://www.flickr.com/services/rest/";
 
 class Image {
-  static getImage(tag) {
+  static getImage(query) {
     // console.log("TAG: ", tag);
     return new Promise((resolve, rejects) => {
       axios
@@ -10,11 +10,11 @@ class Image {
           params: {
             method: "flickr.photos.search",
             api_key: process.env.FLICKRKEY,
-            text: tag,
+            text: query.tag,
             format: "json",
             nojsoncallback: 1,
-            per_page: 16,
-            page: 1,
+            per_page: query.perPage,
+            page: query.page,
           },
         })
         .then((response) => {
