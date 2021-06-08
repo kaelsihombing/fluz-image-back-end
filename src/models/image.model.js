@@ -25,7 +25,7 @@ class Image {
               `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_c.jpg`
             );
           });
-
+          // return response
           return resolve({
             data: urls,
             message: "Flickr Public Photos",
