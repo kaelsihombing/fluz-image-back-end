@@ -18,7 +18,7 @@ class Image {
           },
         })
         .then((response) => {
-          //   console.log(response.data.photos);
+          // console.log("RESPONSE: ", response);
           let urls = [];
           response.data.photos.photo.forEach((photo) => {
             urls.push(
@@ -32,6 +32,7 @@ class Image {
           });
         })
         .catch((error) => {
+          console.log("error!!!!!!!!");
           return rejects({
             message: error.message,
             data: error,
